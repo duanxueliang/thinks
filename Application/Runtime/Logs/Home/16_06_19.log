@@ -1,0 +1,35 @@
+[ 2016-06-19T09:43:13+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/classmanage
+ERR: 模板不存在:D:/phpwebapp/thinks/./Application/Home/View/Class/classmanage.html
+
+[ 2016-06-19T10:30:23+08:00 ] 127.0.0.1 /thinks/index.php/Home/Menu/menumanage
+ERR: Think\Model:display方法不存在！
+
+[ 2016-06-19T16:23:24+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/loadClassByPage?pageNo=1&pageSize=10&page=1&rows=10
+ERR: 1054:Unknown column 'c.managerid' in 'where clause'
+ [ SQL语句 ] : select count(*) as cc from class c,tb_user u1,tb_user u2 where c.headerid=u1.uid and u2.uid=c.managerid 
+ERR: 1054:Unknown column 'c.managerid' in 'where clause'
+ [ SQL语句 ] : select c.cid,c.name,c.classtype,
+            c.createtime,c.begintime,c.endtime,u1.truename headername,
+            u2.trueName managename,c.stucount,c.remark,c.status from class c,tb_user u1,tb_user u2 where c.headerid=u1.uid and u2.uid=c.managerid limit 0,10
+
+[ 2016-06-19T16:55:40+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/loadClassByPage
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0,10' at line 3
+ [ SQL语句 ] : select c.cid,c.name,c.classtype,
+            c.createtime,c.begintime,c.endtime,u1.truename headername,
+            u2.trueName managename,c.stucount,c.remark,c.status from class c,tb_user u1,tb_user u2 where c.headerid=u1.uid and u2.uid=c.manageid  and c.name like '%u2%' and c.status = 1limit 0,10
+
+[ 2016-06-19T16:55:45+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/loadClassByPage
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0,10' at line 3
+ [ SQL语句 ] : select c.cid,c.name,c.classtype,
+            c.createtime,c.begintime,c.endtime,u1.truename headername,
+            u2.trueName managename,c.stucount,c.remark,c.status from class c,tb_user u1,tb_user u2 where c.headerid=u1.uid and u2.uid=c.manageid  and c.name like '%u2%' and c.status = 1limit 0,10
+
+[ 2016-06-19T16:55:51+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/loadClassByPage
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0,10' at line 3
+ [ SQL语句 ] : select c.cid,c.name,c.classtype,
+            c.createtime,c.begintime,c.endtime,u1.truename headername,
+            u2.trueName managename,c.stucount,c.remark,c.status from class c,tb_user u1,tb_user u2 where c.headerid=u1.uid and u2.uid=c.manageid  and c.name like '%u2%' and c.status = 1limit 0,10
+
+[ 2016-06-19T17:32:12+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/rolemanage.php
+ERR: 非法操作:rolemanage.php
+

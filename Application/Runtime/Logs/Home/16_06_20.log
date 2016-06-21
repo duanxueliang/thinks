@@ -1,0 +1,101 @@
+[ 2016-06-20T10:35:42+08:00 ] 127.0.0.1 /thinks/index.php/Home/Calss/checkExamToday
+ERR: 无法加载控制器:Calss
+
+[ 2016-06-20T10:36:23+08:00 ] 127.0.0.1 /thinks/index.php/Home/Calss/checkExamToday
+ERR: 无法加载控制器:Calss
+
+[ 2016-06-20T10:36:24+08:00 ] 127.0.0.1 /thinks/index.php/Home/Calss/checkExamToday
+ERR: 无法加载控制器:Calss
+
+[ 2016-06-20T11:04:14+08:00 ] 127.0.0.1 /thinks/index.php/Home/Class/checkExamToday
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and beginTime between '2016-06-20 00:00:00' and '2016-06-20 23:59:59' )' at line 1
+ [ SQL语句 ] : SELECT * FROM `exam` WHERE ( classid in() and beginTime between '2016-06-20 00:00:00' and '2016-06-20 23:59:59' ) 
+
+[ 2016-06-20T12:52:58+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:53:01+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllManage
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:54:09+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:54:12+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllManage
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:56:10+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:56:13+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllManage
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:57:11+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:57:14+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllManage
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:58:54+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T12:58:58+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllManage
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T13:02:04+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T13:03:26+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T13:05:35+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T13:06:28+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+ERR: 1046:No database selected
+ [ SQL语句 ] : SHOW COLUMNS FROM `tb_user`
+
+[ 2016-06-20T13:07:35+08:00 ] 127.0.0.1 /thinks/index.php/Home/User/loadAllHeader
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '==2 )' at line 1
+ [ SQL语句 ] : SELECT `uid`,`trueName` FROM `tb_user` WHERE ( useType==2 ) 
+

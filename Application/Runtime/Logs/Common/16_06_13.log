@@ -1,0 +1,30 @@
+[ 2016-06-13T11:34:39+08:00 ] 127.0.0.1 /thinks/index.php/home/index/index?s=/eason/aaaa/value/111111111222333111
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Eason
+
+[ 2016-06-13T15:24:16+08:00 ] 127.0.0.1 /thinks/index.php/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+ERR: 无法加载模块:Login
+
+[ 2016-06-13T15:24:24+08:00 ] 127.0.0.1 /thinks/index.php/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载模块:Login
+
+[ 2016-06-13T15:25:49+08:00 ] 127.0.0.1 /thinks/index.php/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015600s ]
+ERR: 无法加载模块:Login
+
+[ 2016-06-13T15:26:58+08:00 ] 127.0.0.1 /thinks/index.php/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015600s ]
+ERR: 无法加载模块:Login
+

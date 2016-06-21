@@ -1,0 +1,244 @@
+<?php
+
+?>
+<!DOCTYPE html>
+<html>
+     <head>
+         <title>菜单管理界面</title>
+         <link type="text/css" rel="stylesheet" href="http://localhost:8080/thinks/Public/easyui/themes/bootstrap/easyui.css"/>
+          <link type="text/css" rel="stylesheet" href="http://localhost:8080/thinks/Public/easyui/themes/icon.css"/>	
+          <script type="text/javascript" src="http://localhost:8080/thinks/Public/easyui/jquery.min.js"></script>
+          <script type="text/javascript" src="http://localhost:8080/thinks/Public/easyui/jquery.easyui.min.js"></script>
+          <script type="text/javascript" src="http://localhost:8080/thinks/Public/easyui/locale/easyui-lang-zh_CN.js"></script>
+         <meta charset="utf-8"> 
+         <style type="text/css">
+            #formtable tr{
+	         height:30px;
+             }  
+         </style>
+         <script type="text/javascript" >
+          $(function(){
+        	  $('#win').window('close');  // close a window  
+        	  $('#dg').datagrid({   
+        		method:"GET", 
+      		    url:'http://localhost:8080/thinks/index.php/Home/Menu/loadMenuByPage?pageNo=1&pageSize=10', 
+        		pagination:true,
+        		striped:true,
+        		rownumbers:true,
+        		frozenColumns:[[
+        		      {field:'afdsa',checkbox:true}
+            		]],
+      		    columns:[[    
+      		        {field:'menuid',hidden:true},    
+      		        {field:'name',title:'菜单名称',width:200,align:'center'},    
+      		        {field:'url',title:'地址',width:200,align:'center'}, 
+        		    {field:'parentid',title:'父级菜单',width:200,align:'center'},    
+      		        {field:'isshow',title:'是否展示',width:200,align:'center',formatter:function(isshow){if(isshow == 1){return "显示";}else{return "隐藏";}}
+                       }
+      		    ]],
+        		toolbar: [{
+            		iconCls: 'icon-adduser',
+            		text:'添加',
+            		handler: function(){
+                		//每次打开在窗口前加载1,2级父级菜单下拉列表的选项
+            			$('#parentid').combobox({    
+                  		    url:'http://localhost:8080/thinks/index.php/Home/Menu/load12Menu',    
+                  		    valueField:'menuid',    
+                  		    textField:'name'   
+                  		  }); 
+            			$('#win').window('open');  // open a window
+            			}
+            	},'-',{
+            		iconCls: 'icon-delete',
+            		text:'删除',
+            	    handler: function(){
+                	   var selectedRows = $("#dg").datagrid("getSelections");
+                	   if(selectedRows.length == 0){
+                            alert("请先选中行");
+                            return;
+                       }
+                       if(window.confirm("你真的想删除吗？？")){
+                           var menuids= new Array();
+                            for(var i=0;i<selectedRows.length;i++){
+                            	menuids.push(selectedRows[i].menuid);
+                            }
+                            $.post("http://localhost:8080/thinks/index.php/Home/Menu/deleteMenu",{
+                                "menuids":menuids.join(",")
+                                },function(data){
+                                  
+                                refreshData(1,10);
+                            },"text");
+                       }
+                    }
+                },'-',{
+        			iconCls: 'icon-refresh',
+            		text:'刷新',
+            	    handler: function(){
+            	    	refreshData(1,10);
+                    }
+                  
+               },'-',{
+          			iconCls: 'icon-modify',
+            		text:'修改',
+            	    handler: function(){
+            	    	var selectedRows = $("#dg").datagrid("getSelections");
+                  	   if(selectedRows.length == 0){
+                              alert("请先选中行");
+                              return;
+                       }if(selectedRows.length > 1){
+ 							 alert("你只能修改一行");
+ 							 return;
+                       }
+                       //每次打开时候加载1，2级菜单作为父级菜单下拉列表的选项
+                        $("#parentid").combobox({
+							url:'http://localhost:8080/thinks/index.php/Home/Menu/load12Menu',
+							valueField:'menuid',
+							textField:'name'
+                        });
+                        //获取当前选中的那一行数据
+                        var row = selectedRows[0]; 
+                        //回填数据
+                        $.getJSON("http://localhost:8080/thinks/index.php/Home/Menu/loadMenuByID?menuid="+row.menuid,{},function(data){
+                            $("#menuid").val(row.menuid);
+   						    $("#name").val(data.name);
+      					    $("#url").val(data.url);
+ 						    $("#parentid").combobox("setValue",data.parentid);
+  						    $("#isshow").combobox("setValue",data.isshow);
+    						
+                        });
+                        //open  一个窗口
+                        $('#win').window('open');
+                    }
+               }]
+      		});
+      		//设置翻页功能
+      		var pager = $("#dg").datagrid("getPager");
+      		pager.pagination({
+      			onSelectPage:function(pageNumber, pageSize){
+      				refreshData(pageNumber, pageSize);
+      			}
+      		});
+      		
+          });
+//          function addMenu(){
+//              var name = $("#name").val();
+//              var url  =$("#url").val(); 
+//              var parentid = $("#parentid").combo('getValue');
+//              var isshow = $("#isshow").combo('getValue');
+//             $.post("deal/addMenu.php",{
+//               "name"    :name,
+//               "url"     :url,
+//               "parentid":parentid,
+//               "isshow"  :isshow
+//             },function(data){
+//           	  if(data == "ok"){
+//             		$('#ff').form('resert');
+//                    refreshData(1,10);
+//                    $('#win').window('close');
+//           	  }
+//             },"text");
+            
+//          }
+         //改变和设置值的函数
+         function saveAndUpdataMenu(){
+             var name = $("#name").val();
+             var url  =$("#url").val(); 
+             var parentid = $("#parentid").combo('getValue');
+             var isshow = $("#isshow").combo('getValue');
+             var menuid = $("#menuid").val();
+            $.post("http://localhost:8080/thinks/index.php/Home/Menu/saveAndUpdataMenu",{
+              "menuid"  :menuid,
+              "name"    :name,
+              "url"     :url,
+              "parentid":parentid,
+              "isshow"  :isshow
+            },function(data){
+                if(data == "insertok"){
+                    $.messager.alert('消息','菜单添加成功','info',function(){
+                    	refreshData(1,10); 
+                    	$('#win').window('close');   
+                    });
+                }else if(data == "updateok"){
+                	$.messager.alert('消息','菜单修改成功','info',function(){
+                    	refreshData(1,10); 
+                    	$('#win').window('close');   
+                    });
+                }
+            },"text");
+         }
+
+//          function updataMenu(){
+//              var name = $("#name").val();
+//              var url  =$("#url").val(); 
+//              var parentid = $("#parentid").combo('getValue');
+//              var isshow = $("#isshow").combo('getValue');
+//              var menuid = $("#menuid").val();
+//             $.post("deal/updataMenu.php",{
+//               "menuid"  :menuid,
+//               "name"    :name,
+//               "url"     :url,
+//               "parentid":parentid,
+//               "isshow"  :isshow
+//             },function(data){
+//                    refreshData(1,10);
+//                    $('#win').window('close');
+//             },"text");
+//          }
+
+         
+         function  refreshData(pageNumber, pageSize){
+        	 $("#dg").datagrid('loading');
+				$.getJSON("http://localhost:8080/thinks/index.php/Home/Menu/loadMenuByPage?pageNo="+pageNumber+"&pageSize="+pageSize,{},function(data){
+                  $("#dg").datagrid('loadData',{
+                      rows:data.rows,
+                      total:data.total
+                  });
+                  var pager = $("#dg").datagrid("getPager");
+          	     	pager.pagination({
+          	     		pageSize:pageSize,
+          	     		pageNumber:pageNumber
+          		  });
+                  $("#dg").datagrid('loaded');
+    		});
+         }
+		 </script>	
+     </head>
+     <body>
+        <table id="dg"></table>
+        <div id="win" class="easyui-window" title="My Window" style="width:600px;height:400px"   
+                data-options="iconCls:'icon-adduser',modal:true,minimizable:false">   
+            <form id="ff" method="post">  
+                <input type="button" id="menuid">
+                <table id="formtable" style="width:100%;margin:auto;margin-top:30px;">
+                    <tr>
+                         <td align="right"><label for="name">菜单名称:</label></td>
+                         <td><input class="easyui-validatebox" type="text" id="name" name="name" data-options="required:true"  placeholder="请输入菜单名称"/></td>
+                    </tr>
+                    <tr>
+                         <td align="right"><label for="url">地址URL:</label></td>
+                         <td><input class="easyui-validatebox" type="text" name="url" id="url" data-options="validType:'email'" placeholder="若添加非最低级菜单   此项课忽略" /></td>
+                    </tr>
+                    <tr>
+                         <td align="right"><label for="parentid">父级菜单:</label></td>
+                         <td> <select id="parentid" class="easyui-combobox" name="parentid" style="width:200px;"></select></td>
+                    </tr>
+                     <tr>
+                         <td align="right"><label for="isshow">是否展示:</label></td>
+                         <td>
+                             <select id="isshow"  name="isshow" class="easyui-combobox" style="width:200px;">   
+                                <option value="1">展示</option>   
+                                <option value="0">隐藏</option>   
+                            </select>  
+                         </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                            
+                            <a id="btn" href="JavaScript:saveAndUpdataMenu();" class="easyui-linkbutton" data-options="iconCls:'icon-submit'">确认</a>  
+                        </td>
+                    </tr>
+                </table> 
+            </form> 
+        </div>  
+     </body>
+</html>

@@ -1,0 +1,1 @@
+a:7:{i:0;s:6:"menuid";i:1;s:4:"name";i:2;s:3:"url";i:3;s:8:"parentid";i:4;s:6:"isshow";s:3:"_pk";s:6:"menuid";s:5:"_type";a:5:{s:6:"menuid";s:7:"int(11)";s:4:"name";s:11:"varchar(30)";s:3:"url";s:11:"varchar(50)";s:8:"parentid";s:7:"int(11)";s:6:"isshow";s:7:"int(11)";}}
