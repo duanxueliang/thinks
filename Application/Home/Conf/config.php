@@ -12,4 +12,15 @@ return array(
 //     'DB_USER' =>'root',
 //     'DB_PWD' =>'892832',
 //     'DB_NAME' =>'syc'
+    'DB_TYPE'   =>  'mysql',
+    'DB_HOST'   =>  'localhost',
+    'DB_USER'   =>  'root',
+    'DB_PWD'    =>  '892832',
+    'DB_PORT'   =>  3306,
+    'DB_NAME'   =>  'syc',
+    'DB_DSN'    =>  'mysql:host=localhost;dbname=syc',
+    'DB_CHARSET'=>  'utf-8',
+    'DB_PARAMS' =>  array(
+        \PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION
+    )
 );

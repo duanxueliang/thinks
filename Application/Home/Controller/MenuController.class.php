@@ -8,6 +8,7 @@ class MenuController extends Controller{
     private $menuModel;    
     
     public function __construct(){
+        parent::__construct();
         $this->menuModel = new MenuModel();
 //         $this->menuModel =new Model("menu","",C("DB_DSN"));
     }

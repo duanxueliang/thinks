@@ -11,7 +11,7 @@ class ClassController extends Controller{
     public  function __construct(){
         parent::__construct();
         //直接实例化Model类，用来完成简单的怎删改查操作
-        $this->classModel =new Model("class","",C("DB_DSN"));//M("class");
+        $this->classModel =new Model("class");//M("class","",C("DB_DSN"));
     }
     public function loadAllClass(){
 //         $param['cid'] =2;
@@ -31,7 +31,7 @@ class ClassController extends Controller{
        //page()分页查询
 //        $data = $this->classModel->table("tb_user")->page(1,10)->select();
     
-//         $this->classModel->where('uage=12')->limit(5)->save(array('upwd'=>'111'));
+//        $this->classModel->where('uage=12')->limit(5)->save(array('upwd'=>'111'));
 //分组
 //having 聚合函数
 //        $this->classModel->field("uage,count(*) num")->group("uage")->having("count(*)>2")->select();

@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Home\Model\MenuModel;
 use Home\Model\UserModel;
 use Think\Controller;
+use Think\Model;
 
 class UserController extends Controller{
     private $userModel;
@@ -12,7 +13,7 @@ class UserController extends Controller{
         parent::__construct();
         $this->userModel= new UserModel();
         $this->menuModel= new MenuModel();
-        $this->userModel2= M("tb_user","",C("DB_DSN"));
+        $this->userModel2= M("tb_user");
     }
     public function test(){
         echo "home控制器";

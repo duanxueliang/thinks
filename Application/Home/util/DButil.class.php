@@ -22,7 +22,7 @@ class DButil{
     public  function __construct(){
         $this->pdoMysql = XMLParse::parseDBXML();
 //         $this->pdo = new \PDO(C("DSN"),C("DBUSER"),C("DBPASS"),C("PDOOPTIONS"));
-        $this->pdo = new \PDO(C("DB_TYPE").":host=".C("DB_HOST").";dbname=".C("DB_NAME"),C("DB_USER"),C("DB_PWD"),C("PDOOPTIONS"));
+        $this->pdo = new \PDO(C("DB_TYPE").":host=".C("DB_HOST").";dbname=".C("DB_NAME"),C("DB_USER"),C("DB_PWD"),C("DB_PARAMS"));
     }
     
     public function executeDML($sql,array $params=null){
